@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Making sudo, please ensure that you have verified this script's checksum"
 sudo -v
 SIZE=$((100))
 while getopts d:s:a option
@@ -31,6 +30,8 @@ echo '' >> /etc/rnd/random.log
 echo "Running random.sh, with options -d $DOCKER -s $SIZE -a $APP at date +%c" >> /etc/rnd/random.log
 
 # Generating random numbers a few times
+echo
+echo Writing random data . . .
 cat /dev/random | head -c 512 >> /etc/rnd/random
 openssl rand -rand /etc/rnd/random 200 >> /etc/rnd/random_openssl
 cat /dev/urandom | head -c 100 >> /etc/rnd/random

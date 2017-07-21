@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo -v
+# Run as sudo or root
 SIZE=$((100))
 while getopts d:s:a option
 do
